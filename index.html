@@ -166,7 +166,7 @@
         .logo-backdrop {
             position: relative;
             display: inline-flex;
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .logo-backdrop::before {
@@ -185,6 +185,24 @@
         }
 
         .logo-white { filter: brightness(0) invert(1); transition: filter 0.5s ease; }
+        
+        .nav-logo-img {
+            height: 2rem; /* Mobile */
+            width: 140px; /* Strict width instead of auto to prevent iOS Safari flex blowout */
+            object-fit: contain;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        @media (min-width: 768px) {
+            .nav-logo-img { height: 3rem; width: 200px; } 
+        }
+        
+        #main-nav.scrolled .nav-logo-img {
+            height: 1.25rem;
+            width: 100px;
+        }
+        @media (min-width: 768px) {
+            #main-nav.scrolled .nav-logo-img { height: 1.75rem; width: 140px; } 
+        }
 
         /* PREMIUM WHATSAPP WIDGET */
         .glass-wa-widget {
@@ -606,7 +624,7 @@
     <!-- HEADER HÍBRIDO FLOTANTE -->
     <nav id="main-nav" class="flex items-center justify-between">
         <a href="#" class="logo-backdrop hover:scale-105 transition-transform flex items-center shrink-0">
-            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="160" height="40" class="h-5 md:h-7 w-auto object-contain logo-white">
+            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="160" height="40" class="nav-logo-img logo-white">
         </a>
         
         <div class="nav-links hidden md:flex items-center gap-6 lg:gap-10 text-[11px] lg:text-[13px] font-bold uppercase tracking-wider">
