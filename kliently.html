@@ -204,8 +204,18 @@
 
         /* LOGO TRANSITION & SMOOTH SCROLLING */
         .nav-logo-img {
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            max-width: 100%;
+            height: auto;
+            width: 280px; /* Tamaño máximo recomendado para visualización en Escritorio */
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), width 0.3s ease;
             filter: none;
+        }
+
+        /* Regla específica para celulares (pantallas pequeñas, ej. tamaño de un Redmi Note o similar) */
+        @media (max-width: 768px) {
+            .nav-logo-img {
+                width: 150px !important; /* Reduce el tamaño del logo significativamente en la vista móvil */
+            }
         }
 
         .logo-white {
@@ -639,8 +649,8 @@
 
     <!-- HEADER HÍBRIDO -->
     <nav id="main-nav">
-        <a href="index.html" title="Volver al inicio - Productivo" class="logo-backdrop flex items-center shrink-0 w-[120px] md:w-[150px] overflow-hidden">
-            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Chat - Solución CRM Inteligente para WhatsApp" class="nav-logo-img w-full h-auto object-contain">
+        <a href="index.html" title="Volver al inicio - Productivo" class="logo-backdrop flex items-center shrink-0 overflow-hidden">
+            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Chat - Solución CRM Inteligente para WhatsApp" class="nav-logo-img object-contain">
         </a>
         
         <div class="nav-links flex items-center gap-6 lg:gap-10 text-[11px] lg:text-[13px] font-bold uppercase tracking-wider">
