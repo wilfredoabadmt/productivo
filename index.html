@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productivo | Inteligencia Artificial para Escalar tu Negocio</title>
-    <meta name="description" content="Automatiza tus procesos, escala tus ventas y recupera tu tiempo con Inteligencia Artificial. La solución líder para negocios con ambición.">
-    <meta name="keywords" content="IA, Automatización, Ventas, Productividad, Inteligencia Artificial Negocios">
+    <title>Productivo | CRM Inteligente & Automatización con IA para WhatsApp</title>
+    <meta name="description" content="Impulsa tu negocio con Productivo y Kliently. El CRM más potente para automatizar ventas en WhatsApp con IA. Prueba 5 días GRATIS y escala tu facturación hoy mismo.">
+    <meta name="keywords" content="CRM WhatsApp, Automatización Ventas, Inteligencia Artificial Negocios, Kliently Chat, Productividad Empresarial, Chatbot IA WhatsApp">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://productivo.click/">
+    <meta property="og:title" content="Productivo | CRM Inteligente & Automatización con IA">
+    <meta property="og:description" content="Automatiza tu WhatsApp, gestiona tus leads y escala tus ventas con Kliently Chat. ¡Regístrate para tu prueba gratuita!">
+    <meta property="og:image" content="https://productivo.click/images/KLIENTLY-logoweb-1-2048x670.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://productivo.click/">
+    <meta property="twitter:title" content="Productivo | CRM Inteligente & Automatización con IA">
+    <meta property="twitter:description" content="Automatiza tu WhatsApp, gestiona tus leads y escala tus ventas con Kliently Chat.">
+    <meta property="twitter:image" content="https://productivo.click/images/KLIENTLY-logoweb-1-2048x670.png">
+
+    <link rel="canonical" href="https://productivo.click/" />
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Kliently Chat",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "description": "CRM Inteligente y Automatización para WhatsApp impulsado por Inteligencia Artificial.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "name": "Prueba Gratuita 5 Días"
+      }
+    }
+    </script>
     
     <!-- CDN Links -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -137,7 +171,14 @@
 
         /* --- UI COMPONENTS --- */
         /* Black background for body to avoid white flash */
-        body { background-color: #03050c !important; color: white; }
+        html, body {
+            background-color: #03050c !important;
+            color: white;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
         .liquid-glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -178,62 +219,18 @@
             transform: translateY(-5px);
         }
 
-        /* LOGO TRANSITION & GLOW */
-        /* --- THE NUCLEAR LOGO FIX --- */
-        .logo-backdrop {
-            position: relative !important;
-            display: inline-flex !important;
-            width: 140px !important;
-            height: 32px !important;
-            min-width: 140px !important;
-            min-height: 32px !important;
-            max-width: 140px !important;
-            max-height: 32px !important;
-            overflow: hidden !important;
-            flex-shrink: 0 !important;
-            transform: none !important;
-        }
+        /* LOGO TRANSITION & SMOOTH SCROLLING */
         .nav-logo-img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: contain !important;
-            flex-shrink: 0 !important;
-            transform: none !important;
-        }
-        @media (min-width: 768px) {
-            .logo-backdrop {
-                width: 200px !important;
-                height: 48px !important;
-                min-width: 200px !important;
-                min-height: 48px !important;
-                max-width: 200px !important;
-                max-height: 48px !important;
-            }
-        }
-        @media (min-width: 768px) {
-            .logo-backdrop { width: 200px !important; height: 48px !important; }
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            filter: none;
         }
 
-        /* Logo transition simplified for stability */
-        .logo-white { filter: brightness(0) invert(1); transition: filter 0.5s ease; }
-        
-        .nav-logo-img {
-            height: 32px !important;
-            width: 140px !important;
-            object-fit: contain !important;
-            flex-shrink: 0 !important;
-            transition: filter 0.5s ease;
+        .logo-white {
+            filter: brightness(0) invert(1);
         }
-        @media (min-width: 768px) {
-            .nav-logo-img { height: 48px !important; width: 200px !important; } 
-        }
-        
+
         #main-nav.scrolled .nav-logo-img {
-            height: 24px !important;
-            width: 100px !important;
-        }
-        @media (min-width: 768px) {
-            #main-nav.scrolled .nav-logo-img { height: 28px !important; width: 140px !important; } 
+            transform: scale(0.85);
         }
 
         /* PREMIUM WHATSAPP WIDGET */
@@ -640,13 +637,24 @@
 
         /* --- MOBILE OVERRIDES --- */
         @media (max-width: 768px) {
-            #main-nav { padding: 1rem; top: 0.5rem; }
-            #main-nav.scrolled { width: 95%; padding: 0.5rem 1.2rem; }
+            #main-nav { 
+                top: 0; 
+                width: 100%; 
+                max-width: none; 
+                border-radius: 0; 
+                padding: 1rem 1.5rem; 
+                border-bottom: 1px solid rgba(255,255,255,0.1); 
+            }
+            #main-nav.scrolled { 
+                top: 0; 
+                width: 100%; 
+                max-width: none; 
+                border-radius: 0; 
+                padding: 0.75rem 1.5rem; 
+            }
             .nav-links { display: none; }
             #back-to-top { bottom: 6.5rem; right: 1.5rem; width: 45px; height: 45px; }
-            .hero-gradient-text { font-size: 42px !important; line-height: 1.1 !important; }
-            #main-nav { top: 0; border-radius: 0; width: 100%; max-width: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-            #main-nav.scrolled { top: 0; width: 100%; max-width: none; border-radius: 0; }
+            .hero-gradient-text { font-size: 32px !important; line-height: 1.1 !important; }
         }
 
         /* Smooth FAQ display */
@@ -686,8 +694,8 @@
 
     <!-- HEADER HÍBRIDO FLOTANTE -->
     <nav id="main-nav" class="flex items-center justify-between">
-        <a href="#" class="logo-backdrop flex items-center shrink-0 w-[140px] md:w-[200px] h-8 md:h-12 overflow-hidden" style="width: 140px; height: 32px;">
-            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="140" height="32" class="nav-logo-img logo-white" style="width: 140px !important; height: 32px !important; object-fit: contain;">
+        <a href="#" class="logo-backdrop flex items-center shrink-0 w-[120px] md:w-[150px] overflow-hidden">
+            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Chat CRM - Sistema de Automatización para WhatsApp" class="nav-logo-img w-full h-auto object-contain">
         </a>
         
         <div class="nav-links hidden md:flex items-center gap-6 lg:gap-10 text-[11px] lg:text-[13px] font-bold uppercase tracking-wider">
@@ -698,7 +706,7 @@
         </div>
 
         <div class="flex items-center gap-3">
-            <a href="https://app.productivo.click/" target="_blank" class="hidden sm:block primary-gradient-btn px-5 py-2 rounded-full text-[11px] font-extrabold uppercase tracking-tighter text-white">
+            <a href="#registro" class="hidden sm:block primary-gradient-btn px-5 py-2 rounded-full text-[11px] font-extrabold uppercase tracking-tighter text-white">
                 Prueba 5 Días
             </a>
             <button onclick="toggleWAMenu()" class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-neon-cyan hover:text-dark-900 transition-all text-white">
@@ -721,7 +729,7 @@
         <a href="#casos-uso" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Industrias</a>
         <a href="#testimonios" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Éxito</a>
         <a href="#faq" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">FAQ</a>
-        <a href="https://app.productivo.click/" class="primary-gradient-btn px-10 py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)]">Prueba Gratis</a>
+        <a href="#registro" onclick="toggleMobileMenu()" class="primary-gradient-btn px-10 py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)]">Prueba Gratis</a>
     </div>
 
     <!-- Cinematic Hero Section -->
@@ -741,7 +749,7 @@
             </div>
             
             <div class="relative w-full flex items-center justify-center">
-                <h1 class="hero-gradient-text text-[48px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in fade-in-1 relative z-20">
+                <h1 class="hero-gradient-text text-[36px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in fade-in-1 relative z-20">
                     Kliently
                 </h1>
             </div>
@@ -751,8 +759,8 @@
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 fade-in fade-in-3">
-                <a href="https://app.productivo.click/" target="_blank" class="primary-gradient-btn px-8 lg:px-12 py-4 lg:py-5 rounded-2xl text-white font-black tracking-tight text-lg lg:text-xl shadow-2xl transition-all">
-                    EMPEZAR AHORA
+                <a href="#registro" class="primary-gradient-btn px-8 lg:px-12 py-4 lg:py-5 rounded-2xl text-white font-black tracking-tight text-lg lg:text-xl shadow-2xl transition-all">
+                    ACTIVA 5 DÍAS GRATIS
                 </a>
                 
                 <div class="flex items-center gap-4 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md">
@@ -854,7 +862,7 @@
 
     <!-- Casos de Uso -->
     <section id="casos-uso" class="py-24 lg:py-32 relative z-10 border-t border-white/5 bg-dark-800/20">
-        <div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none" style="background-image: url('images/image-1024x878-1.webp'); background-size: cover;"></div>
+        <div class="absolute right-0 top-0 w-full lg:w-1/3 h-full opacity-[0.05] lg:opacity-10 pointer-events-none" style="background-image: url('images/image-1024x878-1.webp'); background-size: cover; background-position: center right;"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="text-center mb-16 lg:mb-20">
                 <h2 class="text-neon-orange text-[10px] lg:text-xs font-black tracking-[0.3em] uppercase mb-4">Hecho para tu Industria</h2>
@@ -1060,13 +1068,88 @@
             </div>
         </div>
     </section>
+    <!-- SECCIÓN DE REGISTRO / PRUEBA 5 DÍAS -->
+    <section id="registro" class="py-24 lg:py-32 relative z-10 border-t border-white/5 bg-dark-900 px-4 overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-cyan/10 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-cyan/30 bg-neon-cyan/10 text-neon-cyan mb-6 text-[10px] font-black tracking-widest uppercase">
+                    🎁 OFERTA POR TIEMPO LIMITADO
+                </div>
+                <h2 class="text-3xl lg:text-6xl font-black mb-6 tracking-tighter text-white uppercase leading-none">
+                    Toma el Control en <span class="text-neon-cyan">5 Días</span>
+                </h2>
+                <p class="text-gray-400 text-base lg:text-xl max-w-2xl mx-auto font-medium">
+                    No necesitas tarjeta de crédito. Solo tu ambición de escalar. Regístrate ahora y obtén acceso total a la tecnología que está cambiando las reglas del juego.
+                </p>
+            </div>
 
+            <div class="glass-card p-8 lg:p-12 border-t-4 border-t-neon-cyan max-w-2xl mx-auto shadow-[0_30px_100px_rgba(0,0,0,0.8)]">
+                <form action="https://app.productivo.click/register" method="GET" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Tu Nombre</label>
+                            <input type="text" name="name" required placeholder="Ej. Wilfredo Abad" 
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all font-bold">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Nombre de Negocio</label>
+                            <input type="text" name="business" required placeholder="Ej. Productivo AI" 
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all font-bold">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">WhatsApp de Empresa</label>
+                        <input type="tel" name="whatsapp" required placeholder="Ej. +591 62324506" 
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all font-bold">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Correo Corporativo</label>
+                        <input type="email" name="email" required placeholder="tu@empresa.com" 
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all font-bold">
+                    </div>
+
+                    <button type="submit" class="w-full primary-gradient-btn py-5 rounded-2xl text-white font-black text-xl tracking-tight shadow-2xl transition-all uppercase mt-4">
+                        CREAR MI CUENTA GRATIS
+                    </button>
+                    
+                    <p class="text-[10px] text-gray-500 text-center font-bold uppercase tracking-widest mt-6">
+                        🔒 Tus datos están seguros. Sin compromisos.
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Beneficios Rapidos -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="flex items-center gap-3 justify-center text-gray-400">
+                    <span class="text-neon-cyan">✓</span>
+                    <span class="text-[9px] font-black uppercase tracking-widest">Setup en 5 min</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center text-gray-400">
+                    <span class="text-neon-cyan">✓</span>
+                    <span class="text-[9px] font-black uppercase tracking-widest">Soporte 24/7</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center text-gray-400">
+                    <span class="text-neon-cyan">✓</span>
+                    <span class="text-[9px] font-black uppercase tracking-widest">Sin Crédito</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center text-gray-400">
+                    <span class="text-neon-cyan">✓</span>
+                    <span class="text-[9px] font-black uppercase tracking-widest">Full Acceso</span>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer Principal -->
     <footer class="bg-dark-900 border-t border-white/10 pt-20 pb-10 relative z-10 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1">
-                    <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently" width="160" height="40" class="h-8 mb-6 opacity-90" style="width: 160px; height: auto; object-fit: contain;">
+                    <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently" class="w-[120px] md:w-[160px] h-auto mb-6 opacity-80 hover:opacity-100 transition-opacity">
                     <p class="text-gray-500 text-sm font-medium">Convertimos WhatsApp en tu mina de oro digital. Diseñado para escalar empresas.</p>
                 </div>
                 <div>
