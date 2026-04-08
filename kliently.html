@@ -681,15 +681,21 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-dark-900/70 backdrop-blur-2xl border border-white/10 z-[999999] hidden md:hidden flex-col items-center justify-center gap-8 text-center p-6">
-        <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
-            <span class="material-symbols-outlined text-4xl">close</span>
+    <div id="mobile-menu" class="fixed inset-0 w-screen h-screen bg-[#03050C]/98 backdrop-blur-3xl z-[999999] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col items-center justify-center">
+        <!-- Close Button -->
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-all z-10">
+            <span class="material-symbols-outlined text-3xl">close</span>
         </button>
-        <a href="#interactive-dashboard" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Solución</a>
-        <a href="#casos-uso" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Industrias</a>
-        <a href="#testimonios" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Éxito</a>
-        <a href="#faq" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">FAQ</a>
-        <a href="index.html#registro" onclick="toggleMobileMenu()" class="primary-gradient-btn px-10 py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)]">Prueba Gratis</a>
+
+        <!-- Centered Links -->
+        <div class="flex flex-col items-center justify-center gap-8 w-full max-w-sm px-6 relative z-10">
+            <a href="#interactive-dashboard" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Solución</a>
+            <a href="#casos-uso" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Industrias</a>
+            <a href="#testimonios" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Éxito</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">FAQ</a>
+            
+            <a href="index.html#registro" onclick="toggleMobileMenu()" class="primary-gradient-btn mt-6 w-full py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)] text-center">Prueba Gratis</a>
+        </div>
     </div>
 
     <!-- Cinematic Hero Section -->
@@ -1178,11 +1184,10 @@
         }
 
         function toggleMobileMenu() {
-            console.log('Mobile menu toggled');
             const menu = document.getElementById('mobile-menu');
             if (!menu) return;
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
+            menu.classList.toggle('opacity-0');
+            menu.classList.toggle('pointer-events-none');
             document.body.classList.toggle('overflow-hidden');
         }
 
