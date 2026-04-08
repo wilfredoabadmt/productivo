@@ -96,52 +96,21 @@
             .nav-links { display: none; } 
         }
 
-        /* --- FALLBACKS FOR ROBUSTNESS (If Tailwind fails) --- */
-        .flex { display: flex !important; }
-        .flex-col { flex-direction: column !important; }
-        .flex-row { flex-direction: row !important; }
-        .items-center { align-items: center !important; }
-        .justify-center { justify-content: center !important; }
-        .justify-between { justify-content: space-between !important; }
-        .grid { display: grid !important; }
-        .w-full { width: 100% !important; }
-        .mx-auto { margin-left: auto !important; margin-right: auto !important; }
-        .text-center { text-align: center !important; }
-        .relative { position: relative !important; }
-        .fixed { position: fixed !important; }
-        .absolute { position: absolute !important; }
-        .z-50 { z-index: 50 !important; }
-        .z-10 { z-index: 10 !important; }
-        .max-w-7xl { max-width: 1280px !important; }
-        .max-w-4xl { max-width: 896px !important; }
-        .hidden { display: none !important; }
+        /* --- ROBUSTNESS FALLBACKS (Cleaned up) --- */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .shrink-0 { flex-shrink: 0; }
+        .animate-marquee { display: flex !important; white-space: nowrap !important; }
+        
+        /* Ensure Tailwind's hidden class works if needed */
+        .hidden { display: none; }
         
         @media (min-width: 768px) {
-            .md\:flex-row { flex-direction: row !important; }
-            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-            .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+            .md\:flex { display: flex !important; }
+            .md\:hidden { display: none !important; }
         }
-
-        /* --- FALLBACKS FOR ROBUSTNESS (If Tailwind fails) --- */
-        .flex { display: flex !important; }
-        .flex-col { flex-direction: column !important; }
-        .flex-row { flex-direction: row !important; }
-        .items-center { align-items: center !important; }
-        .justify-center { justify-content: center !important; }
-        .justify-between { justify-content: space-between !important; }
-        .grid { display: grid !important; }
-        .w-full { width: 100% !important; }
-        .mx-auto { margin-left: auto !important; margin-right: auto !important; }
-        .text-center { text-align: center !important; }
-        .relative { position: relative !important; }
-        .fixed { position: fixed !important; }
-        .absolute { position: absolute !important; }
-        .z-50 { z-index: 50 !important; }
-        .z-10 { z-index: 10 !important; }
-        .max-w-7xl { max-width: 1280px !important; }
-        .max-w-4xl { max-width: 896px !important; }
-        .hidden { display: none !important; }
         
         /* Specific Icon Fallbacks */
         .w-7, .h-7 { width: 28px !important; height: 28px !important; }
@@ -265,10 +234,6 @@
         .gap-4 { gap: 1rem; }
         .gap-6 { gap: 1.5rem; }
         .gap-8 { gap: 2rem; }
-        .flex { display: flex; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .shrink-0 { flex-shrink: 0; }
 
         @media (max-width: 768px) {
             #main-nav { padding: 1rem; }
