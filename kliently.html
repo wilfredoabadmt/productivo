@@ -170,20 +170,50 @@
         }
 
         /* LOGO TRANSITION & GLOW */
+        /* --- THE NUCLEAR LOGO FIX --- */
         .logo-backdrop {
-            position: relative;
-            display: inline-flex;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative !important;
+            display: inline-flex !important;
+            width: 140px !important;
+            height: 32px !important;
+            min-width: 140px !important;
+            min-height: 32px !important;
+            max-width: 140px !important;
+            max-height: 32px !important;
+            overflow: hidden !important;
+            flex-shrink: 0 !important;
+            transform: none !important;
+        }
+        .nav-logo-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            flex-shrink: 0 !important;
+            transform: none !important;
+        }
+        @media (min-width: 768px) {
+            .logo-backdrop {
+                width: 200px !important;
+                height: 48px !important;
+                min-width: 200px !important;
+                min-height: 48px !important;
+                max-width: 200px !important;
+                max-height: 48px !important;
+            }
+        }
+        @media (min-width: 768px) {
+            .logo-backdrop { width: 200px !important; height: 48px !important; }
         }
 
         /* Logo transition simplified for stability */
         .logo-white { filter: brightness(0) invert(1); transition: filter 0.5s ease; }
         
         .nav-logo-img {
-            height: 32px !important; /* Fixed pixel height for stability */
-            width: 140px !important; /* Fixed pixel width to prevent blowout */
+            height: 32px !important;
+            width: 140px !important;
             object-fit: contain !important;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            flex-shrink: 0 !important;
+            transition: filter 0.5s ease;
         }
         @media (min-width: 768px) {
             .nav-logo-img { height: 48px !important; width: 200px !important; } 
@@ -607,8 +637,8 @@
 
     <!-- HEADER HÍBRIDO -->
     <nav id="main-nav">
-        <a href="#" class="logo-backdrop hover:scale-105 transition-transform flex items-center shrink-0 w-[140px] md:w-[200px] h-8 md:h-12 overflow-hidden">
-            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="160" height="40" class="nav-logo-img logo-white" style="width: 100%; height: 100%; object-fit: contain; flex-shrink: 0;">
+        <a href="#" class="logo-backdrop flex items-center shrink-0 w-[140px] md:w-[200px] h-8 md:h-12 overflow-hidden" style="width: 140px; height: 32px;">
+            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="140" height="32" class="nav-logo-img logo-white" style="width: 140px !important; height: 32px !important; object-fit: contain;">
         </a>
         
         <div class="nav-links flex items-center gap-6 lg:gap-10 text-[11px] lg:text-[13px] font-bold uppercase tracking-wider">
@@ -652,15 +682,15 @@
                 🔥 LA GUÍA DEFINITIVA
             </div>
             
-            <h1 class="hero-gradient-text text-[56px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in">
+            <h1 class="hero-gradient-text text-[48px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in fade-in-1">
                 Kliently
             </h1>
             
-            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-10 font-medium leading-relaxed fade-in opacity-90 px-4">
+            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-10 font-medium leading-relaxed fade-in fade-in-2 opacity-90 px-4">
                 La Evolución Definitiva de WhatsApp. Construye tu fábrica de tiempo y dinero con el CRM automatizado más potente del mercado.
             </p>
 
-            <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 fade-in">
+            <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 fade-in fade-in-3">
                 <a href="https://app.productivo.click/" target="_blank" class="primary-gradient-btn px-8 lg:px-12 py-4 lg:py-5 rounded-2xl text-white font-black tracking-tight text-lg lg:text-xl shadow-2xl">
                     EMPEZAR AHORA
                 </a>
@@ -688,7 +718,7 @@
                 </div>
             </div>
 
-            <a href="#interactive-dashboard" class="animate-bounce inline-block mt-12 text-gray-500 hover:text-white transition-colors fade-in">
+            <a href="#interactive-dashboard" class="animate-bounce inline-block mt-12 text-gray-500 hover:text-white transition-colors fade-in fade-in-4">
                 <div class="text-2xl">👇</div>
                 <span class="text-[10px] font-bold uppercase tracking-widest text-white">Explorar Sistema</span>
             </a>

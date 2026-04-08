@@ -48,6 +48,22 @@
         @font-face { font-family: 'Gilroy'; font-style: normal; font-weight: 700; src: url('https://fonts.cdnfonts.com/s/16061/Gilroy-Bold.woff') format('woff'); }
         @font-face { font-family: 'Gilroy'; font-style: normal; font-weight: 800; src: url('https://fonts.cdnfonts.com/s/16061/Gilroy-Heavy.woff') format('woff'); }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+        }
+
+        /* Delay for sequential appearance */
+        .fade-in-1 { animation-delay: 0.1s; }
+        .fade-in-2 { animation-delay: 0.2s; }
+        .fade-in-3 { animation-delay: 0.3s; }
+        .fade-in-4 { animation-delay: 0.4s; }
+
         body {
             background-color: #03050c;
             color: #ffffff;
@@ -163,20 +179,50 @@
         }
 
         /* LOGO TRANSITION & GLOW */
+        /* --- THE NUCLEAR LOGO FIX --- */
         .logo-backdrop {
-            position: relative;
-            display: inline-flex;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative !important;
+            display: inline-flex !important;
+            width: 140px !important;
+            height: 32px !important;
+            min-width: 140px !important;
+            min-height: 32px !important;
+            max-width: 140px !important;
+            max-height: 32px !important;
+            overflow: hidden !important;
+            flex-shrink: 0 !important;
+            transform: none !important;
+        }
+        .nav-logo-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            flex-shrink: 0 !important;
+            transform: none !important;
+        }
+        @media (min-width: 768px) {
+            .logo-backdrop {
+                width: 200px !important;
+                height: 48px !important;
+                min-width: 200px !important;
+                min-height: 48px !important;
+                max-width: 200px !important;
+                max-height: 48px !important;
+            }
+        }
+        @media (min-width: 768px) {
+            .logo-backdrop { width: 200px !important; height: 48px !important; }
         }
 
         /* Logo transition simplified for stability */
         .logo-white { filter: brightness(0) invert(1); transition: filter 0.5s ease; }
         
         .nav-logo-img {
-            height: 32px !important; /* Fixed pixel height for stability */
-            width: 140px !important; /* Fixed pixel width to prevent blowout */
+            height: 32px !important;
+            width: 140px !important;
             object-fit: contain !important;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            flex-shrink: 0 !important;
+            transition: filter 0.5s ease;
         }
         @media (min-width: 768px) {
             .nav-logo-img { height: 48px !important; width: 200px !important; } 
@@ -598,7 +644,38 @@
             #main-nav.scrolled { width: 95%; padding: 0.5rem 1.2rem; }
             .nav-links { display: none; }
             #back-to-top { bottom: 6.5rem; right: 1.5rem; width: 45px; height: 45px; }
-            .hero-gradient-text { font-size: 50px !important; line-height: 1.1 !important; }
+            .hero-gradient-text { font-size: 42px !important; line-height: 1.1 !important; }
+            #main-nav { top: 0; border-radius: 0; width: 100%; max-width: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            #main-nav.scrolled { top: 0; width: 100%; max-width: none; border-radius: 0; }
+        }
+
+        /* Smooth FAQ display */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-answer.show {
+            max-height: 1000px;
+            transition: max-height 1s ease-in-out;
+        }
+
+        /* --- PREMIUM ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInPremium 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        .fade-in-1 { animation-delay: 0.2s; }
+        .fade-in-2 { animation-delay: 0.4s; }
+        .fade-in-3 { animation-delay: 0.6s; }
+        .fade-in-4 { animation-delay: 0.8s; }
+
+        @keyframes fadeInPremium {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Grid cols for non-responsive */
@@ -609,8 +686,8 @@
 
     <!-- HEADER HÍBRIDO FLOTANTE -->
     <nav id="main-nav" class="flex items-center justify-between">
-        <a href="#" class="logo-backdrop hover:scale-105 transition-transform flex items-center shrink-0 w-[140px] md:w-[200px] h-8 md:h-12 overflow-hidden">
-            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="160" height="40" class="nav-logo-img logo-white" style="width: 100%; height: 100%; object-fit: contain; flex-shrink: 0;">
+        <a href="#" class="logo-backdrop flex items-center shrink-0 w-[140px] md:w-[200px] h-8 md:h-12 overflow-hidden" style="width: 140px; height: 32px;">
+            <img src="images/KLIENTLY-logoweb-1-2048x670.png" alt="Kliently Logo" width="140" height="32" class="nav-logo-img logo-white" style="width: 140px !important; height: 32px !important; object-fit: contain;">
         </a>
         
         <div class="nav-links hidden md:flex items-center gap-6 lg:gap-10 text-[11px] lg:text-[13px] font-bold uppercase tracking-wider">
@@ -664,17 +741,17 @@
             </div>
             
             <div class="relative w-full flex items-center justify-center">
-                <h1 class="hero-gradient-text text-[56px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in relative z-20">
+                <h1 class="hero-gradient-text text-[48px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in fade-in-1 relative z-20">
                     Kliently
                 </h1>
             </div>
             
-            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-12 font-medium leading-relaxed fade-in opacity-90 px-4">
+            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-12 font-medium leading-relaxed fade-in fade-in-2 opacity-90 px-4">
                 La Evolución Definitiva de WhatsApp. Construye tu fábrica de tiempo y dinero con el CRM automatizado más potente del mercado.
             </p>
 
-            <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 fade-in">
-                <a href="https://app.productivo.click/" target="_blank" class="primary-gradient-btn px-8 lg:px-12 py-4 lg:py-5 rounded-2xl text-white font-black tracking-tight text-lg lg:text-xl shadow-2xl">
+            <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 fade-in fade-in-3">
+                <a href="https://app.productivo.click/" target="_blank" class="primary-gradient-btn px-8 lg:px-12 py-4 lg:py-5 rounded-2xl text-white font-black tracking-tight text-lg lg:text-xl shadow-2xl transition-all">
                     EMPEZAR AHORA
                 </a>
                 
@@ -1120,6 +1197,8 @@
             const c = document.getElementById('faq-content-' + i);
             const icon = document.getElementById('faq-icon-' + i);
             c.classList.toggle('hidden');
+            c.classList.toggle('faq-answer');
+            c.classList.toggle('show');
             icon.innerText = c.classList.contains('hidden') ? '+' : '-';
         }
 
