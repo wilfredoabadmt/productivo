@@ -738,18 +738,18 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; z-index: 999999;">
         <div style="position: absolute; inset: 0; background: rgba(3, 5, 12, 0.95); backdrop-filter: blur(24px);"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center gap-8 px-6" style="z-index: 1000000;">
+        <div class="absolute inset-0 flex flex-col items-end justify-center gap-8 px-12" style="z-index: 1000000;">
             <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/20 transition-all">
                 <span class="material-symbols-outlined text-3xl">close</span>
             </button>
 
-            <!-- Centered Links -->
-            <a href="#interactive-dashboard" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Solución</a>
-            <a href="#casos-uso" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Industrias</a>
-            <a href="#testimonios" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">Éxito</a>
-            <a href="#faq" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">FAQ</a>
+            <!-- Right-aligned Links -->
+            <a href="#interactive-dashboard" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors text-right">Solución</a>
+            <a href="#casos-uso" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors text-right">Industrias</a>
+            <a href="#testimonios" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors text-right">Éxito</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="text-3xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors text-right">FAQ</a>
             
-            <a href="#registro" onclick="toggleMobileMenu()" class="primary-gradient-btn mt-6 w-full max-w-sm py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)] text-center">Prueba Gratis</a>
+            <a href="#registro" onclick="toggleMobileMenu()" class="primary-gradient-btn mt-6 w-64 py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)] text-center">Prueba Gratis</a>
         </div>
     </div>
 
