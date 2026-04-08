@@ -230,6 +230,48 @@
         #back-to-top.show { opacity: 1; visibility: visible; }
         #back-to-top:hover { background: rgba(0, 240, 255, 0.15); border-color: #00f0ff; transform: scale(1.1); }
 
+        .mode-btn {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border-width: 2px !important;
+        }
+        .mode-btn.active { 
+            border-color: #00f0ff !important; 
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);
+            background: rgba(0, 240, 255, 0.08);
+        }
+        .mode-btn.active::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .mode-btn.active-reseller { 
+            border-color: #b500ff !important; 
+            box-shadow: 0 0 40px rgba(181, 0, 255, 0.25);
+            background: rgba(181, 0, 255, 0.08);
+        }
+        .mode-btn.active-reseller::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(181, 0, 255, 0.2) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .mode-btn * { position: relative; z-index: 10; }
+
         .grid { display: grid; }
         .gap-4 { gap: 1rem; }
         .gap-6 { gap: 1.5rem; }
@@ -240,6 +282,7 @@
             #main-nav.scrolled { width: 95%; padding: 0.4rem 1rem; }
             .nav-links { display: none; } 
             #back-to-top { bottom: 6.5rem; right: 1.5rem; width: 45px; height: 45px; }
+            .hero-gradient-text { font-size: 50px !important; line-height: 1.1 !important; }
         }
     </style>
 
@@ -288,17 +331,17 @@
     </div>
 
     <!-- Cinematic Hero Section -->
-    <header class="pt-32 lg:pt-48 pb-12 relative z-10">
-        <section class="flex flex-col items-center justify-center px-4 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-orange/30 bg-neon-orange/10 text-neon-orange mb-6 text-[10px] lg:text-xs font-bold tracking-widest uppercase fade-in">
+    <header class="min-h-screen pt-32 lg:pt-40 pb-20 relative z-10 flex flex-col items-center justify-center overflow-hidden">
+        <section class="flex flex-col items-center justify-center px-4 text-center relative z-20 mb-20">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-orange/30 bg-neon-orange/10 text-neon-orange mb-8 text-[10px] lg:text-xs font-bold tracking-widest uppercase fade-in">
                 🔥 LA GUÍA DEFINITIVA
             </div>
             
-            <h1 class="hero-gradient-text text-[56px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[0.95] tracking-tighter select-none fade-in">
+            <h1 class="hero-gradient-text text-[56px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in">
                 Kliently
             </h1>
             
-            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-6 font-medium leading-relaxed fade-in opacity-90 px-4">
+            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-10 font-medium leading-relaxed fade-in opacity-90 px-4">
                 La Evolución Definitiva de WhatsApp. Construye tu fábrica de tiempo y dinero con el CRM automatizado más potente del mercado.
             </p>
 
@@ -315,16 +358,16 @@
         </section>
 
         <!-- Social Proof / Video Section -->
-        <section class="relative w-full overflow-hidden mt-12 px-4">
-            <div class="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-[2rem] lg:rounded-[3rem] mx-auto max-w-[1280px] border border-white/5">
-                <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-transparent to-dark-900 z-10 pointer-events-none"></div>
-                <video autoplay class="w-full h-full object-cover opacity-50" loop muted playsinline>
+        <section class="relative w-full max-w-[1280px] mx-auto px-4 z-20">
+            <div class="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-[2rem] lg:rounded-[3rem] border border-white/5">
+                <div class="absolute inset-0 bg-gradient-to-b from-dark-900/60 via-transparent to-dark-900 z-10 pointer-events-none"></div>
+                <video autoplay class="w-full h-full object-cover opacity-60" loop muted playsinline>
                     <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260308_114720_3dabeb9e-2c39-4907-b747-bc3544e2d5b7.mp4" type="video/mp4"/>
                 </video>
                 
                 <div class="absolute bottom-6 lg:bottom-12 left-0 w-full z-20 px-4">
-                    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-4 lg:gap-16">
-                        <div class="marquee-container flex-1 overflow-hidden">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="marquee-container overflow-hidden">
                             <div class="flex gap-4 lg:gap-8 animate-marquee whitespace-nowrap">
                                 <div class="liquid-glass px-6 lg:px-8 py-3 lg:py-4 rounded-full flex items-center justify-center flex-shrink-0 w-max">
                                     <span class="text-white font-black text-xs lg:text-base tracking-tighter">CRM INTELIGENTE</span>
@@ -682,7 +725,7 @@
         function renderFeatures(mode) {
             const data = appData[mode];
             const container = document.getElementById('content-area');
-            let html = '<div class="grid md:grid-cols-2 gap-4 lg:gap-8">';
+            let html = '<div class="grid md:grid-cols-2 gap-6 lg:gap-10">';
             data.features.forEach(feat => {
                 html += `<div class="glass-card p-6 lg:p-10 border-l-4 ${mode === 'business' ? 'border-l-neon-cyan' : 'border-l-neon-purple'} shadow-2xl"><div class="text-4xl lg:text-5xl mb-6">${feat.icon}</div><h4 class="text-xl lg:text-2xl font-black mb-4 ${data.titleColor} uppercase tracking-tight">${feat.title}</h4><div class="space-y-4 text-[10px] lg:text-xs text-gray-400 font-bold uppercase tracking-tight"><p class="bg-dark-900/40 p-3 rounded-lg border border-white/5"><span class="text-white">PROBLEMA:</span> ${feat.before}</p><p class="bg-dark-900/40 p-3 rounded-lg border border-white/5"><span class="text-white">MAGIA:</span> ${feat.magic}</p><p class="bg-white/5 p-3 rounded-lg text-white font-black italic text-sm lg:text-base tracking-normal uppercase">${feat.why}</p></div></div>`;
             });

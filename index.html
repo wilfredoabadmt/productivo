@@ -254,13 +254,38 @@
         .mode-btn.active { 
             border-color: #00f0ff !important; 
             box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);
-            background: rgba(0, 240, 255, 0.05);
+            background: rgba(0, 240, 255, 0.08);
+        }
+        .mode-btn.active::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
         .mode-btn.active-reseller { 
             border-color: #b500ff !important; 
             box-shadow: 0 0 40px rgba(181, 0, 255, 0.25);
-            background: rgba(181, 0, 255, 0.05);
+            background: rgba(181, 0, 255, 0.08);
         }
+        .mode-btn.active-reseller::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(181, 0, 255, 0.2) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .mode-btn * { position: relative; z-index: 10; }
         .grid { display: grid; }
         .gap-4 { gap: 1rem; }
         .gap-6 { gap: 1.5rem; }
@@ -308,8 +333,6 @@
         <a href="#faq" onclick="toggleMobileMenu()" class="text-2xl font-black text-white hover:text-neon-cyan uppercase tracking-tighter transition-colors">FAQ</a>
         <a href="https://app.productivo.click/" class="primary-gradient-btn px-10 py-4 rounded-full text-lg font-black text-white uppercase tracking-tighter shadow-[0_10px_30px_rgba(0,240,255,0.3)]">Prueba Gratis</a>
     </div>
-    </div>
-    </nav>
 
     <!-- Cinematic Hero Section -->
     <header class="pt-32 lg:pt-48 pb-20 relative overflow-hidden min-h-screen flex flex-col items-center justify-center">
@@ -323,17 +346,17 @@
         </div>
 
         <section class="flex flex-col items-center justify-center px-4 text-center relative z-20">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-orange/30 bg-neon-orange/10 text-neon-orange mb-6 text-[10px] lg:text-xs font-bold tracking-widest uppercase fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-orange/30 bg-neon-orange/10 text-neon-orange mb-10 text-[10px] lg:text-xs font-bold tracking-widest uppercase fade-in">
                 🔥 LA GUÍA DEFINITIVA
             </div>
             
             <div class="relative w-full flex items-center justify-center">
-                <h1 class="hero-gradient-text text-[56px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[0.95] tracking-tighter select-none fade-in relative z-20">
+                <h1 class="hero-gradient-text text-[56px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-black leading-[1.05] tracking-tighter select-none fade-in relative z-20">
                     Kliently
                 </h1>
             </div>
             
-            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-6 font-medium leading-relaxed fade-in opacity-90 px-4">
+            <p class="text-gray-400 text-sm md:text-lg lg:text-xl max-w-2xl mt-12 font-medium leading-relaxed fade-in opacity-90 px-4">
                 La Evolución Definitiva de WhatsApp. Construye tu fábrica de tiempo y dinero con el CRM automatizado más potente del mercado.
             </p>
 
@@ -712,7 +735,7 @@
         function renderFeatures(mode) {
             const data = appData[mode];
             const container = document.getElementById('content-area');
-            let html = '<div class="grid md:grid-cols-2 gap-4 lg:gap-8">';
+            let html = '<div class="grid md:grid-cols-2 gap-6 lg:gap-10">';
             data.features.forEach(feat => {
                 html += `<div class="glass-card p-6 lg:p-10 border-l-4 ${mode === 'business' ? 'border-l-neon-cyan' : 'border-l-neon-purple'} shadow-2xl"><div class="text-4xl lg:text-5xl mb-6">${feat.icon}</div><h4 class="text-xl lg:text-2xl font-black mb-4 ${data.titleColor} uppercase tracking-tight">${feat.title}</h4><div class="space-y-4 text-[10px] lg:text-xs text-gray-400 font-bold uppercase tracking-tight"><p class="bg-dark-900/40 p-3 rounded-lg border border-white/5"><span class="text-white">PROBLEMA:</span> ${feat.before}</p><p class="bg-dark-900/40 p-3 rounded-lg border border-white/5"><span class="text-white">MAGIA:</span> ${feat.magic}</p><p class="bg-white/5 p-3 rounded-lg text-white font-black italic text-sm lg:text-base tracking-normal uppercase">${feat.why}</p></div></div>`;
             });
